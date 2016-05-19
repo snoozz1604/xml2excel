@@ -14,8 +14,8 @@
                         theme1.xml  
                 [ worksheets ]  
                         sheet1.xml  
-                        styles.xml  
-                        workbook.xml  
+                styles.xml  
+                workbook.xml  
         [Content_Types].xml  
 
 ## パッケージの構成  
@@ -34,7 +34,7 @@
 
 
 ## 内容タイプ  
-内容タイプ定義 [Content_Types].xml は、パッケージﾞを解凍するとルートに存在するファイル  
+内容タイプ定義 **[Content_Types].xml** は、パッケージﾞを解凍するとルートに存在するファイル  
 どのパーツがどのような機能（属性）を持っているのかを示す  
 以下は、空のワークシートが1つだけあるExcelの内容タイプ定義
 
@@ -50,3 +50,18 @@
         <Override ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml" PartName="/docProps/app.xml"/>  
         </Types>  
 
+
+## リレーションシップによる関連付け  
+複数あるパーツの構成とパーツへの参照を解決する役割をリレーションシップ＝関連付けという  
+リレーションシップファイルは階層ごとに［ _rel ］フォルダ内に作成され、**拡張子はrels**となる  
+例）A.xmlというファイル名のパーツのリレーションシップのファイルはA.xml.rels
+
+        <?xml version="1.0" encoding="UTF-8" standalone="true"?>  
+        -<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">  
+        <Relationship Target="docProps/app.xml" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Id="rId3"/>  
+        <Relationship Target="docProps/core.xml" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Id="rId2"/>  
+        <Relationship Target="xl/workbook.xml" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Id="rId1"/>  
+        </Relationships>
+
+ファイルの内容は上記のように、**Relatinships要素をルート**として、**Relatinship要素が列挙**される  
+Relatinship要素は、**Type属性**と**Target属性**を持ち、参照のための**Id値**を持つ
