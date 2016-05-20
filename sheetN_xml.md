@@ -120,12 +120,16 @@ xl/worksheets/sheetN.xml のサンプル（タイトルと書式設定済みの�
         </row>
         
         </sheetData>
-        
-        <phoneticPr fontId="1"/>
-        <pageMargins footer="0.3" header="0.3" bottom="0.75" top="0.75" right="0.7" left="0.7"/>
-        <pageSetup r:id="rId1" orientation="portrait" paperSize="9"/>
 
-        -<tableParts count="1">
+
+## 3. 補助シート属性  
+他にシートの状態を定義する子要素を持つ。以下はサンプルファイルの属性で、他にも子要素は多数あり
+
+        <phoneticPr fontId="1"/>  -- 音声情報
+        <pageMargins footer="0.3" header="0.3" bottom="0.75" top="0.75" right="0.7" left="0.7"/>  -- ページマージン
+        <pageSetup r:id="rId1" orientation="portrait" paperSize="9"/>  -- ページ設定
+
+        -<tableParts count="1">  -- シート上のテーブル情報
             <tablePart r:id="rId2"/>
         </tableParts>
     </worksheet>
