@@ -33,7 +33,9 @@ xl/worksheets/sheetN.xml のサンプル（タイトルと書式設定済みの�
         </cols>
 
 
-## 2. セルテーブル
+## 2. セルテーブル  
+▽セルのc要素のt属性＝データタイプ  
+b：Booliean／e：Error／inlineStr：Inline String／n：Number（デフォルト）／s：Shared String（テキストデータ）／str：String
 
         -<sheetData>  -- データの親要素
 
